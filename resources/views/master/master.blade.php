@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('bootstrap/css/bootstrap.min.css')}}">	
 	<style>
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
@@ -34,6 +34,15 @@
 }
 body {
 	background-color: #f6f6f6;
+}
+.list {
+	margin-left: 20px;
+}
+.h {
+	margin-left: 15px;
+}
+.tmbh {
+	margin-left: 10px;
 }
 </style>
 	<title>@yield('title')</title>

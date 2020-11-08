@@ -7,10 +7,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link navs" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link navs" href="{{url ('/')}}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link navs" href="/about">About</a>
+        <a class="nav-link navs" href="{{url ('/about')}}">About</a>
+      </li>
+      <li class="nav-item">
+        <a href="{{url ('/siswa')}}" class="nav-link navs">Data Siswa</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle navs" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
