@@ -9,7 +9,7 @@ Route::get('/about', function(){
 	return view ('about');
 });
 
-// Route::get('/siswa', 'SiswaController@index');
+
 Route::get('/siswa', 'SiswaController@index')->name('siswa.view');
 
 Route::get('/siswa/siswatambah', 'SiswaController@create');
