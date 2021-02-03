@@ -15,7 +15,6 @@ class siswacontroller extends Controller
     public function index()
     {
         $siswa = Siswa::all();
-        //untuk menampilkan view data
 
         return view('siswa', ['siswa' => $siswa]);
     }
@@ -42,18 +41,25 @@ class siswacontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $this->validate($request, [
-            'nama' => 'required',
-            'umur' => 'required'
-        ]);
+        //validasi
+        $messages = [
+            'required' => 'Field tidak boleh kosong!',
+            'min' => 'Masukkan setidaknya 3 karakter',
+            'max' => 'Maksimal 25 karakter'
+        ];
 
+        $this->validate($request, [
+            'nama' => 'required|min:3|max:25',
+            'umur' => 'required|numeric'
+        ],$messages);
+
+        //eloquent
         Siswa::create([
             'nama' => $request->nama,
             'umur' => $request->umur
         ]);
 
-        return redirect()->route('siswa.view');
+        return redirect()->route('siswa.view')->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
@@ -91,16 +97,23 @@ class siswacontroller extends Controller
      */
     public function update(Request $request, $id)
     {
+        //validasi
+        $messages = [
+            'required' => 'Field tidak boleh kosong!',
+            'min' => 'Masukkan setidaknya 3 karakter',
+            'max' => 'Maksimal 3 karakter'
+        ];
+
         $this->validate($request, [
-            'nama' => 'required',
-            'umur' => 'required'
-        ]);
+            'nama' => 'required|min:3|max:25',
+            'umur' => 'required|numeric'
+        ],$messages);
 
         $input = $request->all();
         $siswa = Siswa::findOrFail($id);
         $siswa->update($input);
 
-        return redirect()->route('siswa.view');
+        return redirect()->route('siswa.view')->with('success', 'Data berhasil diubah!');
     }
 
     /**
@@ -113,7 +126,7 @@ class siswacontroller extends Controller
     {
         Siswa::findOrFail($id)->delete();
 
-        return redirect()->route('siswa.view');
+        return redirect()->route('siswa.view')->with('success', 'Data berhasil dihapus!');
 
     }
 }

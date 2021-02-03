@@ -5,12 +5,10 @@
 <div class="container">
 	<div class="card mt-5">
 		<div class="card-header text-center">
-			Tambah Data Siswa
+			<h4>Tambah Data Siswa</h4>
 		</div>
 		<div class="card-body">
-			<a href="{{url ('/siswa')}}" class="btn btn-primary">Kembali</a>
-			<br>
-			<br>
+			
 
 			{{ Form::model($siswa, array('route' => array('siswa.store'), 'method' => 'post')) }}
 				<div class="form-group">
@@ -18,7 +16,7 @@
 					{!! Form::text('nama', null, array('class'=>'form-control',  )) !!}
 
 					@if($errors->has('nama'))
-						<div class="text-danger">
+						<div class="small text-danger">
 							{{ $errors->first('nama')}}
 						</div>
 					@endif
@@ -28,14 +26,15 @@
 					<label>Umur</label>
 					{!! Form::number('umur', null, array('class'=>'form-control',  )) !!}
 					@if($errors->has('umur'))
-						<div class="text-danger">
+						<div class="small text-danger">
 							{{ $errors->first('umur')}}
 						</div>
 					@endif
 				</div>
 
 				<div class="form-group">
-					<input type="submit" value="Simpan" class="btn btn-success">
+					<input type="submit" value="Simpan" class="btn btn-primary">
+					<a href="{{url ('/siswa')}}" class="btn btn-danger">Kembali</a>
 				</div>
 
 			{{ Form::close() }}
