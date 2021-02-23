@@ -15,7 +15,12 @@
       <li class="nav-item">
         <a href="{{url ('/siswa')}}" class="nav-link navs">Data Siswa</a>
       </li>
-      
+      <li class="nav-item">
+        <a href="{{url ('/login')}}" class="nav-link navs">Login</a>
+      </li>
+      <li class="nav-item">
+        <a href="{{url ('/logout')}}" class="nav-link navs">Logout</a>
+      </li>
     </ul>
     <!-- <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

@@ -20,16 +20,19 @@
 							{{ $errors->first('nama')}}
 						</div>
 					@endif
+
 				</div>
 
 				<div class="form-group">
 					<label>Umur</label>
 					{!! Form::number('umur', null, array('class'=>'form-control',  )) !!}
+
 					@if($errors->has('umur'))
 						<div class="small text-danger">
 							{{ $errors->first('umur')}}
 						</div>
 					@endif
+					
 				</div>
 
 				<div class="form-group">
